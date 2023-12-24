@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dgrades</title>
+    <link th:href="@{/grades-stylesheet.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="topnav">
+        <a th:href="@{/}">Form</a>
+        <a th:href="@{/grades}">Grades</a>
+      </div>
+  
+      <div class= "container">
+        <h2>Grades</h2>
+        <table id="table"> 
+          <tr>
+            <th>Id</th>
+            <th>Student</th>
+            <th>Subject</th>
+            <th>Score</th>
+          </tr>
+          <tr th:each="grade: ${gradez}">
+            <td th:text="${grade.id}"></td>
+            <td th:text="${grade.name}"></td>
+            <td th:text="${grade.subject}"></td>
+            <td th:text="${grade.score}"></td>
+            <td><a role="button" class="update" th:href="@{/(id = ${grade.id})}">Update</a></td>
+          </tr>
+        </table>
+      </div>
+
+</body>
+</html>
